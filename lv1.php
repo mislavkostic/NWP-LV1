@@ -131,12 +131,11 @@
                         foreach ($html->find('.post-content') as $text) {
                         }
                 }
-                $oib = get_oib($img->src);
                 $rad = array(
                         'naziv_rada' => $link->plaintext,
                         'tekst_rada' => $text->plaintext,
                         'link_rada' => $link->href,
-                        'oib_tvrtke' => $oib
+                        'oib_tvrtke' => get_oib($img->src)
                 );
                 $newRad = new DiplomskiRad($rad);
                 $newRad->save();
